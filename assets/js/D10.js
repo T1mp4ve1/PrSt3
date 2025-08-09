@@ -556,8 +556,6 @@ const containerSelect = () => {
   return console.log("Lo faccio per eseguire le prove!");
 };
 containerSelect();
-containerSelect();
-containerSelect();
 
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
@@ -675,6 +673,7 @@ const addClassTr = () => {
   tr.forEach((e) => {
     e.className = "test";
   });
+  console.log("Voilà");
 
   //   tr.forEach((e) => {
   //   e.classList.add("test");
@@ -695,8 +694,18 @@ addClassTr();
   ***
 
 */
-// console.log('');
-// console.log('Esercizio_27');
+console.log("");
+console.log("Esercizio_27");
+
+const halfTree = (n) => {
+  somm = "";
+  for (let i = 0; i < n; i++) {
+    let y = "*";
+    somm += y;
+    console.log(somm);
+  }
+};
+halfTree(3);
 
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
@@ -707,16 +716,30 @@ addClassTr();
     *
    ***
   *****
-
 */
-// console.log('');
-// console.log('Esercizio_28');
+
+console.log("");
+console.log("Esercizio_28");
+
+const Tree = (n) => {
+  for (let i = 1; i <= n; i++) {
+    let x = n - i;
+    let asterisco = "*";
+    let hole = " ";
+    let i2 = i - 1;
+
+    let mult = asterisco.repeat(i);
+    let mult2 = asterisco.repeat(i2);
+    let spaces = hole.repeat(x);
+    let result = spaces + mult + mult2;
+
+    console.log(result);
+  }
+};
+Tree(3);
 
 /* ESERCIZIO 29
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 */
-
-/* Questo array viene usato per gli esercizi. Non modificarlo. */
-
 // console.log('');
 // console.log('Esercizio_29');
