@@ -485,77 +485,202 @@ console.log(sumAllTheYears(movies));
 console.log("");
 console.log("Esercizio_17");
 
-const searchByTitle = (array) => {
-  for (let i = 0; i < array.length; i++) {
-    let movieTitle = array[i].Title;
-    console.log(movieTitle);
-  }
-};
-console.log(searchByTitle(movies));
-
-const searchByTitle2 = str => {
-  return movies.filter(e =>
-    e.Title.toLowerCase().indexOf(str.toLowerCase()) !== -1
+const searchByTitle = (str) => {
+  return movies.filter((e) =>
+    e.Title.toLowerCase().includes(str.toLowerCase())
   );
 };
-console.log(searchByTitle2('Lord'));
+console.log(searchByTitle("lord"));
 
 /* ESERCIZIO 18
   Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
   "match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
 */
-// console.log('');
-// console.log('Esercizio_18');
+console.log("");
+console.log("Esercizio_18");
+
+const searchAndDivide = (str, array) => {
+  let container = {
+    match: [],
+    unmatch: [],
+  };
+
+  for (e of array) {
+    if (e.Title.toLowerCase().includes(str.toLowerCase())) {
+      container.match.push(e);
+    } else {
+      container.unmatch.push(e);
+    }
+  }
+  return container;
+};
+console.log(searchAndDivide("lord", movies));
 
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
-// console.log('');
-// console.log('Esercizio_19');
+console.log("");
+console.log("Esercizio_19");
+
+const removeIndex = (n, array) => {
+  const moviesNew = structuredClone(array);
+  moviesNewRemove = moviesNew.splice(n, 1);
+  return moviesNew;
+};
+console.log(removeIndex(5, movies));
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
-// console.log('');
-// console.log('Esercizio_20');
+console.log("");
+console.log("Esercizio_20");
+
+const container = document.getElementById("container");
+
+const containerSelect = () => {
+  const container = document.getElementById("container");
+  const table = document.createElement("table");
+  table.className = "table_class";
+  container.appendChild(table);
+  const tr = document.createElement("tr");
+  tr.className = "tr_class";
+  table.appendChild(tr);
+  for (let i = 0; i < 4; i++) {
+    const td = document.createElement("td");
+    td.innerText = "Prova" + " " + [i];
+    td.className = "td_class";
+    tr.appendChild(td);
+  }
+  return console.log("Lo faccio per eseguire le prove!");
+};
+containerSelect();
+containerSelect();
+containerSelect();
 
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
-// console.log('');
-// console.log('Esercizio_21');
+console.log("");
+console.log("Esercizio_21");
+
+const tdSelectFunc = () => {
+  const td = document.querySelectorAll("td");
+  // td.forEach((td) => {
+  //   td.style.color = "rgba(243, 0, 0, 1)";
+  // });
+  return console.log("Funzia!");
+};
+tdSelectFunc();
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
-// console.log('');
-// console.log('Esercizio_22');
+console.log("");
+console.log("Esercizio_22");
+
+const tdText = () => {
+  const td = document.querySelectorAll("td");
+
+  for (let i = 0; i < td.length; i++) {
+    console.log(td[i].innerText);
+  }
+
+  // td.forEach((td) => {
+  //   console.log(td.innerText);
+  // });
+};
+tdText();
 
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
-// console.log('');
-// console.log('Esercizio_23');
+console.log("");
+console.log("Esercizio_23");
+
+const linkColor = () => {
+  const table = document.createElement("table");
+  table.className = "table_class";
+  container.appendChild(table);
+  const tr = document.createElement("tr");
+  tr.className = "tr_class";
+  table.appendChild(tr);
+  for (let i = 0; i < 4; i++) {
+    const td = document.createElement("td");
+    td.innerText = "";
+    td.className = "td_class";
+    tr.appendChild(td);
+
+    const a = document.createElement("a");
+    a.className = "a_class";
+    a.href = "www.google.it";
+    a.innerText = "Prova" + " " + [i];
+    a.target = "_blank";
+    td.appendChild(a);
+  }
+
+  const a = document.querySelectorAll("a");
+  a.forEach((a) => {
+    a.style.backgroundColor = "red";
+  });
+  return console.log("Ecco!"); // serve return o no?
+};
+linkColor();
 
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
-// console.log('');
-// console.log('Esercizio_24');
+console.log("");
+console.log("Esercizio_24");
+
+const ul = document.createElement("ul");
+ul.id = "myList";
+container.appendChild(ul);
+const li = document.createElement("li");
+li.className = "List";
+li.innerText = "prima";
+ul.appendChild(li);
+
+const addList = (text) => {
+  const li = document.createElement("li");
+  li.className = "List";
+  li.innerText = text;
+  ul.appendChild(li);
+  return console.log(text);
+};
+addList("seconda");
 
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
-// console.log('');
-// console.log('Esercizio_25');
+console.log("");
+console.log("Esercizio_25");
+
+const cancelText = () => {
+  const li = document.getElementById("myList");
+  li.innerText = "";
+};
+// cancelText();
+console.log("Qui ci potrebbe essere del testo, ma non c'è.");
 
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
-// console.log('');
-// console.log('Esercizio_26');
+console.log("");
+console.log("Esercizio_26");
+
+const addClassTr = () => {
+  const tr = document.querySelectorAll("tr");
+  tr.forEach((e) => {
+    e.className = "test";
+  });
+
+  //   tr.forEach((e) => {
+  //   e.classList.add("test");
+  // });
+};
+addClassTr();
 
 // [EXTRA] JS Avanzato
 
